@@ -1,0 +1,11 @@
+pip install -r "./requirements.txt" - для скачивания библиотек
+git fetch - загрузить изменения с сервера на commit
+git pull - скачать commit на уст-во
+-----------создание среды--------------
+python -m venv <name> - создаем среду с именем name.
+<name>\Scripts\activate - активировать среду.
+python <--/--/--/File.py> - запустить File.py
+SPACE
+Set-ExecutionPolicy RemoteSigned - если выдает ошибку "Выполнение сценариев отключено..."
+-------------библиотеки-------------
+pip freeze > requirements.txt - создать файл с библиотеками
