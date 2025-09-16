@@ -4,5 +4,3 @@ vat=float(input('НДС:'))
 print(f'База после скидки: {round(price*(1-dis/100),2)}руб.')
 print(f'НДС: {round((price*(1-dis/100))*(vat/100),2)}руб.')
 print(f'Итог к оплате: {round((price*(1-dis/100))*(vat/100)+price*(1-dis/100),2)}руб.')
-
-
