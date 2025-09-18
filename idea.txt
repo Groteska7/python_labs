@@ -1,6 +1,6 @@
 pip install -r "./requirements.txt" - для скачивания библиотек
 git fetch - загрузить изменения с сервера на commit
-git pull - скачать commit на уст-во
+git pull - скачать commit на уст-воfetch
 -----------создание среды--------------
 python -m venv <name> - создаем среду с именем name.
 <name>\Scripts\activate - активировать среду.
