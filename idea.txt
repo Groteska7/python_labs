@@ -9,4 +9,8 @@ SPACE
 Set-ExecutionPolicy RemoteSigned - если выдает ошибку "Выполнение сценариев отключено..."
 -------------библиотеки-------------
 pip freeze > requirements.txt - создать файл с библиотеками
-ghfh
+
+git add .
+git commit -m "txt"
+git push 
+
