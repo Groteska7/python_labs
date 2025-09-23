@@ -28,10 +28,10 @@ def flatten(mat: list[list | tuple]) -> list:
                 return "TypeError"    
     return answ
 
-# print("-------------------------------->",min_max(json.loads(input("min_max: "))))
+print("-------------------------------->",min_max(json.loads(input("min_max: "))))
 # print(min_max([int(float(x)) if float(x)%1==0  else float(x) for x in input().split()]))
 
-# print("-------------------------------->",unique_sorted(json.loads(input("nique_sorted: "))))
+print("-------------------------------->",unique_sorted(json.loads(input("nique_sorted: "))))
 # print(unique_sorted([int(float(x)) if float(x)%1==0  else float(x) for x in input().split()]))
 
 print("-------------------------------->",flatten(ast.literal_eval(input("flatten: "))))
