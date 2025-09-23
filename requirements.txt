@@ -1,9 +1,9 @@
-NO READ PLZ
-Monokai Pro
-Path Autocomplete
-Python
-Python Debugger
-IntelliCode
-Russian Language Pack for Visual Studio Code
-vscode-pets
-VSCode Animations
+#              NO READ PLZ
+# Monokai Pro
+# Path Autocomplete
+# Python
+# Python Debugger
+# IntelliCode
+# Russian Language Pack for Visual Studio Code
+# vscode-pets
+# VSCode Animations
