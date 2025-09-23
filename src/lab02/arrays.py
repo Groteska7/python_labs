@@ -17,5 +17,5 @@ def min_max(input_data: list[int|float]) -> list[int|float]:
 def unique_sorted(nums: list[float | int]) -> list[float | int]:
     return sorted(set(nums))
 
-print(min_max([int(float(x)) if float(x)%1==0  else float(x) for x in input().split()]))
-#print(unique_sorted(input().split()))
+#print(min_max([int(float(x)) if float(x)%1==0  else float(x) for x in input().split()]))
+print(unique_sorted([int(float(x)) if float(x)%1==0  else float(x) for x in input().split()]))
