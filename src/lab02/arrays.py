@@ -1,4 +1,7 @@
-def min_max(input_data: list[int,float]) -> tuple[float | int, float | int]:
+from typing import Union
+
+def min_max(input_data: list[int|float]) -> list[int|float]:
+    #print(input_data)
     if input_data==[]:
         return "ValueError"
     #if all([str(x) in "0123456789" for x in IN_string.split()]):
@@ -8,10 +11,11 @@ def min_max(input_data: list[int,float]) -> tuple[float | int, float | int]:
     #        else:
     #            work_mas.append(int(x))
     else:
-        return input_data.sort()
+        return min(input_data),max(input_data)
+
 
 def unique_sorted(nums: list[float | int]) -> list[float | int]:
     return sorted(set(nums))
 
-print(min_max(input().split()))
-print(unique_sorted(input().split()))
+print(min_max([int(float(x)) if float(x)%1==0  else float(x) for x in input().split()]))
+#print(unique_sorted(input().split()))
