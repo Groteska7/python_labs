@@ -44,5 +44,5 @@ def col_sums(mat: list[list[float | int]]) -> list[float]:
 
 
 print("-------->",transpose(json.loads(input("transpose: "))))
-print("-------->",row_sums(json.loads(input("row_sums: "))))
+# print("-------->",row_sums(json.loads(input("row_sums: "))))
 print("-------->",col_sums(json.loads(input("col_sums: "))))
