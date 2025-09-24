@@ -1,6 +1,5 @@
 import typing
-import json
-from ast import literal_eval as make_tuple
+from ast import literal_eval
 
 def format_record(rec: tuple[str, str, float]) -> str:
     if len(rec)!=3:
@@ -10,15 +9,18 @@ def format_record(rec: tuple[str, str, float]) -> str:
     # answer=[]
     FIO=list(rec[0].split())
     # answer.append(FIO[0])
-    answer=FIO[0]+" "+FIO[1][0]
+    answer=str(FIO[0]).title()+" "+str(FIO[1][0]).upper()
     # print(len(FIO))
     if len(FIO)==3:
-        answer=answer+"."+(FIO[2][0])+"., "
+        answer=answer+"."+str(FIO[2][0]).upper()+"., "
     else:
         answer+="., "
-    answer=answer+rec[1]+", "+"GPA "+f'{str(round(rec[-1],2)):04}'
+    answer=answer+"гр. "+rec[1]+", "+"GPA "+f'{str(round(rec[-1],2)):04}'
     return answer
 
 
-
-print(format_record(make_tuple(input("format_record: "))))
+inTuple=str(input("format_record: "))
+if inTuple=="":
+    print("ValueError")
+else:
+    print(format_record(literal_eval(inTuple)))
