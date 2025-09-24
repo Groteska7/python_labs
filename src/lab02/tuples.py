@@ -9,9 +9,10 @@ def format_record(rec: tuple[str, str, float]) -> str:
     answer=FIO[0]+" "+FIO[1][0]
     # print(len(FIO))
     if len(FIO)==3:
-        answer=answer+"."+(FIO[2][0])+".,"
+        answer=answer+"."+(FIO[2][0])+"., "
     else:
-        answer+=","
+        answer+="., "
+    answer=answer+rec[1]+", "+"GPA "+f'{str(round(rec[-1],2)):04}'
     return answer
 
 
