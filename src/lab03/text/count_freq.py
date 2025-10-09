@@ -21,6 +21,6 @@ def top_n(freq: dict[str, int], n: int = 5) -> list[tuple[str, int]]:
     return answ
 
 
-x=input().split()
-print("count_freq: ",count_freq(x))
-print("top_n: ",top_n(count_freq(x)))
+# x=literal_eval(input())
+# print("count_freq: ",count_freq(x))
+# print("top_n: ",top_n(count_freq(x)))
