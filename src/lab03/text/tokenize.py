@@ -1,7 +1,11 @@
 from normalize import normalize
 import re
+from ast import literal_eval
 def tokenize(text: str) -> list[str]:
-    normalize(text)
-    mas=re.split(r'\W+|\s+',text)
-    return mas
-print(tokenize(input()))
+    text=normalize(text)
+    print(text)
+    mas=re.findall(r'\w+\-\w+|\w+',text)
+    answ=[x for x in mas if x!="" and x!=None]
+    # print(mas)
+    return answ
+# print(tokenize(literal_eval(input())))

@@ -1,3 +1,5 @@
+from ast import literal_eval
+import sys
 def normalize(text: str, casefold: bool = True, yo2e: bool = True) -> str:
     lvl_1=""
     answ=""
@@ -5,9 +7,9 @@ def normalize(text: str, casefold: bool = True, yo2e: bool = True) -> str:
     if yo2e:
         text=text.replace("ё","е").replace("Ё","Е")
     text=text.replace("\\t"," ").replace("\\r"," ").replace("\\n"," ")
-    for i in text.split():
-        lvl_1+=str(i)+" "
-    lvl_1=lvl_1[:-1]
+    # print(text.split())
+    lvl_1=" ".join(text.split())
+    # lvl_1=[x.join(" ")for x in lvl_1.split()]
     # print("--------->",lvl_1)
     if casefold:
         for x in lvl_1:
@@ -16,13 +18,17 @@ def normalize(text: str, casefold: bool = True, yo2e: bool = True) -> str:
     else:
         return lvl_1
 
-# a=input()
+# a=literal_eval(input())
 # C=bool(input("casefold: "))
 # if C=="":
 #     C=1
 # Y=bool(input("yo2e: "))
 # if Y=="":
 #     Y=1
-# print(a)
+# # print(a)
 # print("|"+normalize(a,casefold=C,yo2e=Y)+"|")
-          
+
+# print("casefold | yo2e | string")
+# for line in sys.stdin:
+#     C,Y,a=line.split()
+#     print("|"+normalize(literal_eval(a),casefold=bool(C),yo2e=bool(Y))+"|")

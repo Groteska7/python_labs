@@ -15,9 +15,9 @@ def text_stats(inp: str, flag: bool) -> str:
         if par_1>5:
             print("слово"," "*abs(par_1-5),"|","частота")
         elif par_1<5:
-            print("слово","|","частота")
+            print("слово"," |","частота")
             par_1=5
-        print("-"*(par_1+abs(par_1-5)+8))
+        print("-"*(par_1+abs(par_1-5)+10))
         for i in top_n(count_freq(inp.lower().split())):
             print(f'{i[0]} {" "*(par_1-len(i[0]))} | {i[1]}')
     elif flag==False:
