@@ -2,13 +2,17 @@ import sys
 from text.count_freq import top_n
 from text.count_freq import count_freq
 from text.normalize import normalize
+from text.tokenize import tokenize
 
 
-def text_stats(inp: str, flag: bool) -> str:
+def text_stats(inp: str, flag: str) -> str:
     print(f'Всего слов: {len(inp.split())}')
     print(f'Уникальных слов: {len(set(inp.split()))}')
-    if flag==True:
-        par_1=max([len(x) for x in inp.split()])
+    mas=tokenize(normalize(inp))
+    # inp=normalize(inp,1,1)
+    # print(inp)
+    if flag=="True":
+        par_1=max([len(x) for x in mas])
         print(par_1)
         # print(par_1)
         # print(top_n(count_freq(inp.lower().split()))[0][0])
@@ -18,18 +22,22 @@ def text_stats(inp: str, flag: bool) -> str:
             print("слово"," |","частота")
             par_1=5
         print("-"*(par_1+abs(par_1-5)+10))
-        for i in top_n(count_freq(inp.lower().split())):
+        # print(tokenize(inp))
+        for i in top_n(count_freq(mas)):
             print(f'{i[0]} {" "*(par_1-len(i[0]))} | {i[1]}')
-    elif flag==False:
+    else:
         print("Топ 5:")
         x=0
-        while x<5:
-            i=top_n(count_freq(inp.split()))[x]
+        n=5
+        if len(top_n(count_freq(mas)))<5:
+            n=len(top_n(count_freq(mas)))
+        while x<n:
+            i=top_n(count_freq(mas))[x]
             print(f'{i[0]}: {i[1]}')
-            x+1
+            x+=1
 
 # text_stats(sys.stdin.read().split())
 print("введите True/False чтобы включить/выключить табличный режим")
-key=bool(input())
+key=input()
 for line in sys.stdin:
-    text_stats(normalize(line),key)
+    text_stats(normalize(line,1,1),key)
