@@ -23,8 +23,15 @@ def text_stats(inp: str, flag: str) -> str:
             par_1=5
         print("-"*(par_1+abs(par_1-5)+10))
         # print(tokenize(inp))
+        n=5
+        x=0
+        if len(top_n(count_freq(mas)))<5:
+            n=len(top_n(count_freq(mas)))
         for i in top_n(count_freq(mas)):
+            if x==n:
+                break
             print(f'{i[0]} {" "*(par_1-len(i[0]))} | {i[1]}')
+            x+=1
     else:
         print("Топ 5:")
         x=0
