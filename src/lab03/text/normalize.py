@@ -13,20 +13,20 @@ def normalize(text: str, casefold: bool = True, yo2e: bool = True) -> str:
     # print("--------->",lvl_1)
     if casefold:
         for x in lvl_1:
-            answ+=x.lower()
+            answ+=x.casefold()
         return answ
     else:
         return lvl_1
 
-# a=literal_eval(input())
-# C=bool(input("casefold: "))
-# if C=="":
-#     C=1
-# Y=bool(input("yo2e: "))
-# if Y=="":
-#     Y=1
-# # print(a)
-# print("|"+normalize(a,casefold=C,yo2e=Y)+"|")
+a=literal_eval(input())
+C=bool(input("casefold: "))
+if C=="":
+    C=1
+Y=bool(input("yo2e: "))
+if Y=="":
+    Y=1
+# print(a)
+print("|"+normalize(a,casefold=C,yo2e=Y)+"|")
 
 # print("casefold | yo2e | string")
 # for line in sys.stdin:
