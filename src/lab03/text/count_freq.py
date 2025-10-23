@@ -1,6 +1,6 @@
 from ast import literal_eval
 
-def count_freq(tokens: list[str]) -> dict[str, int]:
+def count_freq_f(tokens: list[str]) -> dict[str, int]:
     answ={}
     a=set(tokens)
     # print(a)

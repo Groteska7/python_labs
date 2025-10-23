@@ -1,6 +1,6 @@
 # from ast import literal_eval
 import sys
-def normalize(text: str, casefold: bool = True, yo2e: bool = True) -> str:
+def normalize_f(text: str, casefold: bool = True, yo2e: bool = True) -> str:
     lvl_1=""
     answ=""
     # print("----->",text)
