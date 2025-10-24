@@ -3,8 +3,8 @@ import csv
 from pathlib import Path
 import sys
 
-PROJECT_ROOT = Path(__file__).parent.parent.parent
-sys.path.insert(0, str(PROJECT_ROOT))
+# PROJECT_ROOT = Path(__file__).parent.parent.parent
+# sys.path.insert(0, str(PROJECT_ROOT))
 
 # from src.lab03.text.normalize import normalize_f
 from src.lab03.text.tokenize import tokenize_f
