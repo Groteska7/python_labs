@@ -2,12 +2,14 @@ from pathlib import Path
 import sys
 import csv
 from collections import Counter
+import os
 
 PROJECT_ROOT = Path(__file__).parent.parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from src.lab03.text.normalize import normalize_f
 from src.lab03.text.tokenize import tokenize_f
+from src.lab03.text.normalize import normalize_f
+
 
 
 def ensure_parent_dir(path: str | Path) -> None:
@@ -22,8 +24,9 @@ def read_text(path: str | Path, encoding: str = "utf-8") -> str:
         with open(path,"r",newline="",encoding=encoding) as file:
             in_file=str(file.read())
         return normalize_f(in_file)
-    except UnicodeDecodeError():
+    except UnicodeDecodeError:
         print("неверная кодировка")
+
 
 # print({Path.cwd()})
 # for item in Path.cwd().iterdir():
@@ -39,7 +42,7 @@ def write_csv(rows: list[tuple | list], path: str | Path, header: tuple[str, ...
     len_form=len(rows[0])
     for x in rows:
         if len_form!=len(x):
-            raise ValueError()
+            raise ValueError("Ошибка чтения файла")
             break
     with open(path,"w",newline="",encoding="utf-8") as file:
         if header is not None:
@@ -49,6 +52,8 @@ def write_csv(rows: list[tuple | list], path: str | Path, header: tuple[str, ...
 
 
 def frequencies_from_text(text: str) -> dict[str, int]:
+    if text==None:
+        raise ValueError("неверный формат")
     tokens = tokenize_f(normalize_f(text))
     return Counter(tokens)  # dict-like
 

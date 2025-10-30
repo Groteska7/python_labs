@@ -1,0 +1,6 @@
+file,word,count
+"inputB.txt,hi",3
+"inputB.txt,world",2
+"inputA.txt,world",1
+"inputA.txt,hello",1
+"inputB.txt,hello",1
