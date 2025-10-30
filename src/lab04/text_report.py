@@ -14,6 +14,6 @@ from src.lab03.text_stats import text_stats_f
 enc=input("введите кодировку: ")
 line=Path(input("введите путь к файлу: "))
 work_str=read_text(line,encoding=enc)
-print(count_freq_f(tokenize_f(work_str)))
+# print(count_freq_f(tokenize_f(work_str)))
 print(text_stats_f(work_str,False))
 write_csv(top_n(count_freq_f(tokenize_f(work_str))),"data/lab04/report.csv",("word","count"))

@@ -34,13 +34,13 @@ for i in range(k):
     work_str=mas[i]
     if work_str==None:
         break
-    print(work_str)
+    # print(work_str)
     # print(count_freq_f(tokenize_f(work_str)))
     # print(text_stats_f(work_str,False))
-    print(count_freq_f(tokenize_f(work_str)))
+    # print(count_freq_f(tokenize_f(work_str)))
     per.update(count_freq_f(tokenize_f(work_str)))
     total.update({f"{f_names[i]},{key}": value for key, value in per.items()})
-    print(total)
-print(per)
+    # print(total)
+# print(per)
 write_csv(top_n(count_freq_f(tokenize_f(work_str))),"data/lab04/report_per_file.csv",("word","count"))
 write_csv((sorted(total.items(),reverse=True, key=lambda item: item[1])),"data/lab04/report_total.csv",("file","word","count"))
