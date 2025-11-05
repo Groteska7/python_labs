@@ -1,6 +1,6 @@
 file,word,count
-"inputB.txt,hi",3
-"inputB.txt,world",2
-"inputA.txt,hello",1
-"inputA.txt,world",1
-"inputB.txt,hello",1
+inputB.txt,hi,4
+inputA.txt,hey,3
+inputA.txt,hello,2
+inputB.txt,world,2
+inputB.txt,hello,2

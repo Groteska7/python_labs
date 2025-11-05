@@ -6,7 +6,7 @@ def normalize_f(text: str, casefold: bool = True, yo2e: bool = True) -> str:
     # print("----->",text)
     if yo2e:
         text=text.replace("ё","е").replace("Ё","Е")
-    text=text.replace("\\t"," ").replace("\\r"," ").replace("\\n"," ")
+    text=text.replace("\\t"," ").replace("\\r"," ").replace("\\n"," ").replace('"',"").replace("'","")
     # print(text.split())
     lvl_1=" ".join(text.split())
     # lvl_1=[x.join(" ")for x in lvl_1.split()]

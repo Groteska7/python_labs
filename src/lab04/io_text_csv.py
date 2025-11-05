@@ -23,9 +23,14 @@ def read_text(path: str | Path, encoding: str = "utf-8") -> str:
     try:
         with open(path,"r",newline="",encoding=encoding) as file:
             in_file=str(file.read())
+            if in_file==None:
+                raise ValueError(f"Файл пуст")
         return normalize_f(in_file)
     except UnicodeDecodeError:
-        print("неверная кодировка")
+        print("Ошибка декодирования файла")
+
+    if not path.is_file():
+        raise ValueError(f"Указанный путь не является файлом")
 
 
 # print({Path.cwd()})
@@ -40,6 +45,10 @@ def write_csv(rows: list[tuple | list], path: str | Path, header: tuple[str, ...
     path=Path(path)
     ensure_parent_dir(path)
     len_form=len(rows[0])
+    # print("len_form ---->",len_form)
+    # print("len(header) ---->",len(header))
+    # if len(header) != len_form:
+    #     raise ValueError(f"Длина заголовка ({len(header)}) не соответствует длине строк данных")
     for x in rows:
         if len_form!=len(x):
             raise ValueError("Ошибка чтения файла")
@@ -47,17 +56,29 @@ def write_csv(rows: list[tuple | list], path: str | Path, header: tuple[str, ...
     with open(path,"w",newline="",encoding="utf-8") as file:
         if header is not None:
             csv.writer(file,delimiter=",").writerow(header)
+        # print(rows)
         csv.writer(file,delimiter=",").writerows(rows)
-        print("файл создан/изменен")
+    print("файл создан/изменен")
 
 
 def frequencies_from_text(text: str) -> dict[str, int]:
     if text==None:
-        raise ValueError("неверный формат")
+        raise ValueError("Текст не должен быть пустой строкой")
     tokens = tokenize_f(normalize_f(text))
     return Counter(tokens)  # dict-like
 
 def sorted_word_counts(freq: dict[str, int]) -> list[tuple[str, int]]:
+    if not freq:
+        raise ValueError("Словарь частот не может быть пустым")
+    if not isinstance(freq, dict):
+        raise TypeError("Аргумент freq должен быть словарем")
+    for key, val in freq.items():
+        if not isinstance(key, str):
+            raise TypeError(f"Ключи словаря должны быть строками")
+        if not isinstance(val, int):
+            raise TypeError(f"Значения словаря должны быть целыми числами")
+        if val < 0:
+            raise ValueError(f"Частота не может быть отрицательной")
     return sorted(freq.items(), key=lambda kv: (-kv[1], kv[0]))
         
         
