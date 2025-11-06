@@ -1,4 +1,9 @@
-word,count
-hi,4
-hello,2
-world,2
+file,word,count
+inputB.txt,hi,4
+inputA.txt,hey,3
+inputA.txt,hello,2
+inputB.txt,world,2
+inputB.txt,hello,2
+
+
+
