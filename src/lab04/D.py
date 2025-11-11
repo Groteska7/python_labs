@@ -30,7 +30,6 @@ for i in range(k):
     # print(f_names)
     mas.append(read_text(Path(A),enc))
 
-# print(mas)
 total={}
 for i in range(k):
     per={}
@@ -51,5 +50,13 @@ for row in sorted(total.items(),reverse=True, key=lambda item: item[1]):
      flattened_row = list(row[0]) + [row[1]]
      flattened_rows.append(flattened_row)
 # print(flattened_rows)
-write_csv(top_n(count_freq_f(tokenize_f(work_str))),"data/lab04/report_per_file.csv",("word","count"))
-write_csv(flattened_rows,"data/lab04/report_total.csv",("file","word","count"))
+print("work_str ----->",work_str)
+print("mas ---->",mas)
+data_sum=""
+for i in mas:
+    data_sum+="".join(i)
+    if i!=mas[-1]:
+        data_sum+=" "
+print("data_sum ----->",data_sum)
+write_csv(top_n(count_freq_f(tokenize_f(data_sum))),"data/lab04/report_total.csv",("word","count"))
+write_csv(flattened_rows,"data/lab04/report_per_file.csv",("file","word","count"))
