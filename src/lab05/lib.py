@@ -13,8 +13,8 @@ path_json = Path("data/lab05/out/people.json")
 def w_json(data: any, path: Path|str) -> None:
     if not path.exists():
         raise FileNotFoundError("Файл не найден")
-    if path.suffix != ".json" or path.stat().st_size ==0:
-        raise ValueError("Неверный тип файла или файл пуст")
+    if path.suffix != ".json":
+        raise ValueError("Неверный тип файла")
     with open(path, 'w', encoding='utf-8') as file:
         json.dump(data, file, ensure_ascii=False, indent=2)
 
@@ -34,8 +34,8 @@ path_csv = Path("data/lab05/out/people.csv")
 def write_csv(data: list[tuple | list], path: str | Path) -> None:
     if not path.exists():
         raise FileNotFoundError("Файл не найден")
-    if path.suffix != ".csv" or path.stat().st_size ==0:
-        raise ValueError("Неверный тип файла или файл пуст")
+    if path.suffix != ".csv":
+        raise ValueError("Неверный тип файла")
     headers = list(data[0].keys())
     with open(path, 'w', newline='', encoding='utf-8') as file:
         writer = csv.DictWriter(file, fieldnames=headers)#Записывает все кроме КЛЮЧАЙ в словарях, определяя ключи в этой строке под filednsmes
