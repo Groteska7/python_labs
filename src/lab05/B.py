@@ -1,7 +1,7 @@
 from openpyxl import Workbook
 from pathlib import Path
 import csv
-from lib import r_json, r_csv
+from .lib import r_json, r_csv
 
 
 path_csv_samples = Path("data/lab05/samples/cities.csv")
@@ -32,4 +32,4 @@ def csv_to_xlsx(csv_path: str|Path, xlsx_path: str|Path) -> None:
             ws.append(row)
         wb.save(xlsx_path)
 
-csv_to_xlsx(path_csv_samples,xlsx_path)
+# csv_to_xlsx(path_csv_samples,xlsx_path)
