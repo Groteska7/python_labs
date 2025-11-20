@@ -22,9 +22,9 @@ def main():
 
     args = parser.parse_args()
 
-    if not args.input_file.is_file():
-        parser.error(f"Указанный путь {args.input_file} не является файлом")
-    if not args.output_file.is_file():
+    
+    
+    if not make_obs(args.input_file).is_file():
         parser.error(f"Указанный путь {args.output_file} не является файлом")
 
 
@@ -34,7 +34,7 @@ def main():
     if args.cmd == "csv2json":
         csv_to_json(make_obs(args.input_file),make_obs(args.output_file))
     
-    if args.cmd == "sv2xlsx":
+    if args.cmd == "csv2xlsx":
         csv_to_xlsx(make_obs(args.input_file),make_obs(args.output_file))
 
 
