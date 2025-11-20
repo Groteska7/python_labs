@@ -1,4 +1,5 @@
 import argparse
+from pathlib import Path
 from src.lab05.A import json_to_csv, csv_to_json
 from src.lab05.B import csv_to_xlsx
 from lib import make_obs
@@ -20,7 +21,12 @@ def main():
     p3.add_argument("-o", "--output", dest="output_file", help="конечный файл xlsx", required=True,type=str)
 
     args = parser.parse_args()
-    print(args.input_file, args.output_file)
+
+    if not args.input_file.is_file():
+        parser.error(f"Указанный путь {args.input_file} не является файлом")
+    if not args.output_file.is_file():
+        parser.error(f"Указанный путь {args.output_file} не является файлом")
+
 
     if args.cmd == "json2csv":
         json_to_csv(make_obs(args.input_file),make_obs(args.output_file))

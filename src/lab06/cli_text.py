@@ -30,10 +30,14 @@ def main():
 
     args = parser.parse_args()
 
-    if args.command == "cat":
-        path=Path(args.input_file)
+    path=Path(args.input_file)
         if not path.is_absolute():
             path = PROJECT_ROOT / path
+
+    if not args.input_file.is_file():
+        parser.error(f"Указанный путь {args.input_file} не является файлом")
+    
+    if args.command == "cat":
         if not path.exists():
             raise FileNotFoundError("Указанный файл не найден")
         if path.suffix==".csv":
@@ -41,7 +45,7 @@ def main():
         elif path.suffix==".json":
             data=data=list(list(x.values()) for x in r_json(path))
         else:
-            raise TypeError("Недопустимый формат файла")
+            raise ValueError("Недопустимый формат файла")
         
         if args.n:
             for i in range(len(data)):
@@ -52,11 +56,9 @@ def main():
 
 
     elif args.command == "stats":
-        path=Path(args.input_file)
-        if not path.is_absolute():
-            path = PROJECT_ROOT / path
         if not path.exists():
             raise FileNotFoundError("Указанный файл не найден")
+        
         
         if path.suffix==".csv":
             data=list(list(x.values()) for x in r_csv(path))
@@ -66,7 +68,7 @@ def main():
             with open(path,"r",encoding="utf-8") as file:
                 data = file.read()
         else:
-            raise TypeError("Недопустимый формат файла")
+            raise ValueError("Недопустимый формат файла")
 
         data=top_n(count_freq_f(tokenize_f(data)),args.top_n)
         if len(data)<args.top_n:
