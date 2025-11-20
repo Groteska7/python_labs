@@ -5,9 +5,9 @@
     "Age": "28"
   },
   {
-    "First Name": "Emma",
-    "Last Name": "Johnson",
-    "Age": "32"
+    "First Name": null,
+    "Last Name": "null",
+    "Age": 27
   },
   {
     "First Name": "Michael",

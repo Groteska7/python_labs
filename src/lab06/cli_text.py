@@ -33,37 +33,31 @@ def main():
     path=Path(args.input_file)
     if not path.is_absolute():
         path = PROJECT_ROOT / path
-
-    if not path.is_file():
-        parser.error(f"Указанный путь {args.input_file} не является файлом")
+    print(path)
+    # if not path.is_file():
+    #     parser.error(f"Указанный путь {args.input_file} не является файлом")
     
     if args.command == "cat":
         if not path.exists():
             raise FileNotFoundError("Указанный файл не найден")
-        if path.suffix==".csv":
-            data=list(list(x.values()) for x in r_csv(path))
-        elif path.suffix==".json":
-            data=data=list(list(x.values()) for x in r_json(path))
-        elif path.suffix==".txt":
-            with open(path,"r",encoding="utf-8") as file:
-                data = tokenize_f(file.read())
+        with open(path,"r",encoding="utf-8") as file:
+                data = file.readlines()
                 print(data)
-            if args.n:
-                for i in range(len(data)):
-                    print(i+1,data[i])
-            else:
-                for i in range(len(data)):
-                    print(data[i])
-            sys.exit()
-        else:
-            raise ValueError("Недопустимый формат файла")
+                if args.n:
+                    for i in range(len(data)):
+                        print(i+1,data[i],end="")
+                else:
+                    for i in range(len(data)):
+                        print(data[i],end="")
+        # else:
+        #     raise ValueError("Недопустимый формат файла")
         
-        if args.n:
-            for i in range(len(data)):
-                print(i+1,", ".join(data[i]))
-        else:
-            for i in range(len(data)):
-                print(", ".join(data[i]))
+        # if args.n:
+        #     for i in range(len(data)):
+        #         print(i+1,", ".join(data[i]))
+        # else:
+        #     for i in range(len(data)):
+        #         print(", ".join(data[i]))
 
 
     elif args.command == "stats":
