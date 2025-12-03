@@ -11,29 +11,33 @@ data = [{"name": "Alice", "age": 22}, {"name": "Bob", "age": 25}]
 path_json = Path("data/lab05/out/people.json")
 
 def w_json(data: any, path: Path|str) -> None:
-    if not path.exists():
-        raise FileNotFoundError("Файл не найден")
+    if data==None or data==[] or data=="":
+        raise ValueError("Нет данных")
+    # if not path.exists():
+    #     raise FileNotFoundError("Файл не найден")
     if path.suffix != ".json":
         raise ValueError("Неверный тип файла")
     with open(path, 'w', encoding='utf-8') as file:
         json.dump(data, file, ensure_ascii=False, indent=2)
 
 def r_json(path: Path|str) -> any:
-    if path.suffix != ".json" or path.stat().st_size ==0:
-        raise ValueError("Неверный тип файла или файл пуст")
     if not path.exists():
         raise FileNotFoundError("Файл не найден")
+    if path.suffix != ".json" or path.stat().st_size ==0:
+        raise ValueError("Неверный тип файла или файл пуст")
     with open(path, "r", encoding="utf-8") as file:
         return json.load(file)
 
 # print(r_json(path_json))
 
 #---------------Чтение/запись csv файлов---------------
-path_csv = Path("data/lab05/out/people.csv")
+# path_csv = Path("data/lab05/out/people.csv")
 
 def write_csv(data: list[tuple | list], path: str | Path) -> None:
-    if not path.exists():
-        raise FileNotFoundError("Файл не найден")
+    if data==None or data==[] or data=="":
+        raise ValueError("Нет данных")
+    # if not path.exists():
+    #     raise FileNotFoundError("Файл не найден")
     if path.suffix != ".csv":
         raise ValueError("Неверный тип файла")
     headers = list(data[0].keys())
@@ -43,10 +47,10 @@ def write_csv(data: list[tuple | list], path: str | Path) -> None:
         writer.writerows(data)
 
 def r_csv(path: Path|str) -> list:
-    if path.suffix != ".csv" or path.stat().st_size ==0:
-        raise ValueError("Неверный тип файла или файл пуст")
     if not path.exists():
         raise FileNotFoundError("Файл не найден")
+    if path.suffix != ".csv" or path.stat().st_size ==0:
+        raise ValueError("Неверный тип файла или файл пуст")
     answ=[]
     with open(path, "r", encoding="utf-8") as file:
         read=csv.DictReader(file)
