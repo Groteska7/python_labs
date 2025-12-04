@@ -1,24 +1,33 @@
-# from ast import literal_eval
+from ast import literal_eval
 import sys
+
+
 def normalize_f(text: str, casefold: bool = True, yo2e: bool = True) -> str:
-    lvl_1=""
-    answ=""
+    lvl_1 = ""
+    answ = ""
     # print("----->",text)
     if yo2e:
-        text=text.replace("ё","е").replace("Ё","Е")
-    text=text.replace("\\t"," ").replace("\\r"," ").replace("\\n"," ").replace('"',"").replace("'","")
+        text = text.replace("ё", "е").replace("Ё", "Е")
+    text = (
+        text.replace("\\t", " ")
+        .replace("\\r", " ")
+        .replace("\\n", " ")
+        .replace('"', "")
+        .replace("'", "")
+    )
     # print(text.split())
-    lvl_1=" ".join(text.split())
+    lvl_1 = " ".join(text.split())
     # lvl_1=[x.join(" ")for x in lvl_1.split()]
     # print("--------->",lvl_1)
     if casefold:
         for x in lvl_1:
-            answ+=x.casefold()
+            answ += x.casefold()
         return answ
     else:
         return lvl_1
 
-# a=literal_eval(input())
+
+# a=input()
 # C=bool(input("casefold: "))
 # if C=="":
 #     C=1
@@ -26,9 +35,9 @@ def normalize_f(text: str, casefold: bool = True, yo2e: bool = True) -> str:
 # if Y=="":
 #     Y=1
 # # print(a)
-# print("|"+normalize(a,casefold=C,yo2e=Y)+"|")
+# print("|"+normalize_f(a,casefold=C,yo2e=Y)+"|")
 
 # print("casefold | yo2e | string")
 # for line in sys.stdin:
 #     C,Y,a=line.split()
-#     print("|"+normalize(literal_eval(a),casefold=bool(C),yo2e=bool(Y))+"|")
+#     print("|"+normalize_f(a,casefold=bool(C),yo2e=bool(Y))+"|")

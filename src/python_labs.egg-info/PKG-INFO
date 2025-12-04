@@ -1,0 +1,9 @@
+Metadata-Version: 2.4
+Name: python_labs
+Version: 0.0.1
+Requires-Dist: openpyxl>=3.0.0
+Provides-Extra: dev
+Requires-Dist: pytest>=8.0.0; extra == "dev"
+Requires-Dist: pytest-cov>=5.0.0; extra == "dev"
+Requires-Dist: black>=24.0.0; extra == "dev"
+Requires-Dist: pytest-mock>=3.10.0; extra == "dev"
