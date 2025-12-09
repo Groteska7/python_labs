@@ -117,6 +117,7 @@ def test_json_to_csv_wrong_csv_extension(tmp_path: Path):
     with pytest.raises(TypeError, match="Неверный тип файла"):
         json_to_csv(str(src), str(dst))
 
+
 def test_json_to_csv_memply(tmp_path: Path):
     src = tmp_path / "data.json"
     dst = tmp_path / "data.csv"
@@ -126,8 +127,6 @@ def test_json_to_csv_memply(tmp_path: Path):
 
     with pytest.raises(ValueError, match="Нет данных"):
         json_to_csv(str(src), str(dst))
-
-
 
 
 def test_csv_to_json_basic(tmp_path: Path):
