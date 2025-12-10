@@ -45,5 +45,5 @@ def csv_to_json(csv_path: str | Path, json_path: str | Path) -> None:
     print("csv_to_json: Данные записаны")
 
 
-# json_to_csv(path_json_samples,path_json_out)
+json_to_csv("data/lab08/students_input.json","data/lab09/students.csv")
 # csv_to_json(path_csv_samples,path_csv_out)
