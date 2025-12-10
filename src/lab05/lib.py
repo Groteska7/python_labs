@@ -39,7 +39,7 @@ def r_json(path: Path | str) -> any:
 # path_csv = Path("data/lab05/out/people.csv")
 
 
-def write_csv(data: list[tuple | list], path: str | Path) -> None:
+def write_csv(data: list[any], path: str | Path) -> None:
     if data == None or data == [] or data == "":
         raise ValueError("Нет данных")
     # if not path.exists():
@@ -55,7 +55,7 @@ def write_csv(data: list[tuple | list], path: str | Path) -> None:
         writer.writerows(data)
 
 
-def r_csv(path: Path | str) -> list:
+def r_csv(path: Path | str) -> list: #Возвращает список строк из CSV файла
     if not path.exists():
         raise FileNotFoundError("Файл не найден")
     if path.suffix != ".csv" or path.stat().st_size == 0:

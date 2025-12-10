@@ -67,7 +67,8 @@ class Student:
         return {
             "fio": self.fio,
             "birthdate": self.birthdate,
-            "gpa": self.gpa,
+            "group": self.group,
+            "gpa": self.gpa
         }
 
     @classmethod
@@ -84,10 +85,11 @@ class Student:
 
 if __name__ == "__main__":
     data = Student(
-        fio="Вован Вакакойстудент Вовович",
-        birthdate="25.01.2007",
-        group="KRUT-99-1",
-        gpa=4.5
+        fio="Илья Ильич Ленин",
+        birthdate="01.01.1992",
+        group="USSR-22-11",
+        gpa=5.0
     )
+    answ=data.to_dict()
     print(data)
-    print(f"Словарь: {data.to_dict()}") 
+    print(f"Словарь: {answ}")

@@ -5,6 +5,7 @@ from pathlib import Path
 
 def students_to_json(students, path: Path):
     data = [s.to_dict() for s in students]
+    # print(data)
     try:
         with open(path, "w", encoding="utf-8") as file:
             json.dump(data, file, ensure_ascii=False, indent=2)
@@ -42,6 +43,7 @@ if __name__ == "__main__":
 
     # with open(input_path,"r",encoding="utf-8") as file:
     #     data=json.load(file)
-        
+    for x in students_from_json(input_path):
+        print(x)
     data=students_from_json(input_path)
     students_to_json(data,output_path)
