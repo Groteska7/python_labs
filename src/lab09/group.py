@@ -43,7 +43,7 @@ class Group:
         with open(self.path, "a",encoding="utf-8",newline="") as file:
             writer=csv.writer(file)
             writer.writerow([student.fio,student.birthdate,student.group,student.gpa])
-        return print(f"студент {student.fio} добавлен")
+        return f"студент {student.fio} добавлен"
     
     def find(self, substr: str):
         # print("---------------->",group._read_all())
