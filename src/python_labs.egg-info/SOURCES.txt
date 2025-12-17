@@ -36,6 +36,7 @@ src/lab08/__init__.py
 src/lab08/models.py
 src/lab08/serialize.py
 src/lab09/__init__.py
+src/lab09/cli_conf_lab09.py
 src/lab09/group.py
 src/python_labs.egg-info/PKG-INFO
 src/python_labs.egg-info/SOURCES.txt
